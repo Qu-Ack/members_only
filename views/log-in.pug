@@ -1,0 +1,11 @@
+extends layout 
+block content
+    div.wholewrapper 
+        div.wrapper
+            h1.signup=title
+            form.signup-form(method="POST")
+                label(for="username") Username 
+                input(type="text" required=true id="username" name="username" value=(undefined === user ? '' : user.username))
+                label(for="password") Password 
+                input(type="password" required=true id="password" name="password")
+                button(type="submit") Log In   

@@ -4,4 +4,21 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    nav.navbar 
+      h3.mainheading 
+        a(href="/") Memon  
+      ul.loginitems 
+        
+        if currentUser
+          li 
+            a(href="/logout") log out 
+          li 
+            a(href="/member") Become A member
+        else 
+          li 
+            a(href="/login") log in 
+          li 
+            a(href="/signup") sign up 
+    
+
     block content

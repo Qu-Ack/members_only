@@ -1,0 +1,12 @@
+extends layout 
+
+block content 
+    div.wholewrapper 
+        div.wrapper
+            h1.signup=title
+            form.signup-form(method="POST")
+                label(for="heading") Heading of the Message 
+                input(type="text" required=true id="heading" name="heading" value=(message===undefined ? '': message.heading))
+                label(for="text") Message Text 
+                textarea(name="text" id="text" cols="30", rows="10" value=(message===undefined ? '' : message.text)) 
+                button(type="submit") Create    

@@ -1,8 +1,77 @@
 body {
-  padding: 50px;
+  margin: 0px;
+  /* padding:32px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* background-color: black; */
 }
+
+.navbar {
+  display:flex;
+  justify-content: space-between;
+  padding:32px;
+  background: black;
+  align-items: center;
+}
+
+.navbar .mainheading {
+  margin-left: 32px;
+
+  font-size: 1.4rem;
+}
+
+.navbar .loginitems {
+  display: flex;
+  list-style: none;
+  gap:32px;
+  font-size: 1.1rem;
+  margin-right: 32px;
+
+}
+
 
 a {
   color: #00B7FF;
+  text-decoration: none;
+}
+
+a:visited {
+  color:pink;
+}
+
+.wholewrapper {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  padding: 32px;
+  margin-top: 32px;
+  background-color: black;
+  border: 1px solid white;
+  height: 40vh;
+  width:40vh;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  color:white;
+}
+
+.wrapper .signup-form {
+  display:flex;
+  flex-direction: column;
+  margin-bottom: 64px;
+}
+
+.wrapper .signup-form label {
+  margin-top: 12px;
+}
+
+.wrapper .signup-form button {
+  margin: 0 auto;
+  margin-top: 16px;
+  width:40%;
 }
