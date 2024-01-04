@@ -3,6 +3,7 @@ const asyncHandler = require('express-async-handler');
 const User = require('../models/user')
 const Message = require('../models/message')
 const bcrypt = require('bcryptjs');
+require('dotenv').config()
 
 
 exports.signup_get = asyncHandler(function(req,res,next)
@@ -69,6 +70,29 @@ exports.member_get = asyncHandler(function (req,res,next)
 })
 
 
+exports.member_post = [
+    body("passcode").escape(),
+
+    asyncHandler(async (req,res,next) => {
+        const errors = validationResult(req)
+        // const passcode = req.body.passcode
+        if (!errors.isEmpty())
+        {
+            res.render("member", {passcode:req.body.passcode , errors:errors})
+        } else {
+            if (req.body.passcode === process.env.passcode)
+            {
+                await User.findByIdAndUpdate(req.user._id , {isMember:true})
+                res.redirect("/")
+            } else {
+                res.render("member", {passcode: req.body.passcode, err:"Passcode Didn't match"})
+            }
+        }
+
+    })
+]
+
+
 exports.message_create_get = asyncHandler(function(req,res,next)
 {
     res.redirect('/message/new');
@@ -104,8 +128,7 @@ exports.new_message_post = [
             res.render('create-message', {title: "Create A Message", message:message })
         } else {
             await message.save()
-            const allMessages = Message.find({}).populate('Author').exec();
-            res.render('index', {allMessages:allMessages});
+            res.redirect('/')
         }
     })
 ]

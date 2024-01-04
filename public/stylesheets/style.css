@@ -75,3 +75,36 @@ a:visited {
   margin-top: 16px;
   width:40%;
 }
+
+.msgwrapper {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.msgwrapper .msgtop
+{
+  width:40%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 32px;
+}
+
+.msgwrapper .messages ul {
+  list-style: none;
+}
+
+.msgwrapper .messages ul .message-list {
+  background: black;
+  padding:12px;
+  color:white;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.msgwrapper .messages ul .message-list .message-heading {
+  display: flex;
+  justify-content: space-between;
+}

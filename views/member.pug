@@ -1,4 +1,10 @@
 extends layout 
 
-block content 
-    h1 Become A Member Today
+block content
+    div.member-wrapper
+        h1 Become A Member Today
+        h3 to Become a Member Enter the Secret Passcode
+        form(method="POST")
+            label(for="passcode")  Enter The Passcode
+            input(type="text" required=true id="passcode" name="passcode")
+            button(type="submit") SUBMIT

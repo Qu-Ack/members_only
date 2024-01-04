@@ -2,20 +2,24 @@ extends layout
 
 block content
   div.msgwrapper
-    h1.greeting #{currentUser === undefined ? '' : "Welcome " + currentUser.name}
-    form(method="GET" action='/message/new')
-      button(type="submit") Create A New Message 
+    div.msgtop
+      h1.greeting #{currentUser === undefined ? '' : "Welcome " + currentUser.name}
+      if currentUser
+        form(method="GET" action='/message/new')
+          button(type="submit") Create A New Message 
     div.messages
       if allMessages
-        each message in allMessages
-          li.message
-            div.msginfo 
-              h2=message.heading 
-              p=message.text
-            if currentUser
-              if currentUser.isMember 
-                div.authorinfo
-                h4=message.Author.name 
-
+        ul 
+          each message in allMessages 
+            li.message-list 
+              div.message-heading 
+                h2.msg-heading #{message.heading}
+                if currentUser
+                  if currentUser.isMember 
+                    div.members-only 
+                      p=message.date
+                      p=message.Author.name
+              p.msg-text=message.text
+              
 
 
